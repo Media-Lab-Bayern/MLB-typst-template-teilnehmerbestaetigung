@@ -4,7 +4,7 @@ Automatische Generierung von Teilnahmebescheinigungen basierend auf einer Teilne
 
 ## 📁 Ordnerstruktur
 
-```
+```text
 ├── README.md                           # Diese Datei
 ├── main.typ                            # Haupttemplate
 ├── teilnehmende.csv                    # Teilnehmer-Datenquelle
