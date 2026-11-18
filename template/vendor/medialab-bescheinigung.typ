@@ -36,7 +36,7 @@
 #let heading-fonts = ("PP Formula",)
 
 // Helper: Formula text with special styling
-#let formula(size, weight: "regular", body) = text(
+#let formula(size, weight: "regular", stretch: 75%, body) = text(
   font: heading-fonts, weight: weight, size: size, features: ("ss02", "ss03"), hyphenate: false, body,
 )
 #let bescheinigung(vorname: "", nachname: "", template: (:)) = {
@@ -49,7 +49,7 @@
   set par(leading: 0.6em, spacing: 0.9em)
   set list(indent: 0.4em, body-indent: 0.8em, spacing: 0.45em)
 
-  set document(title: template.titel + "  " + name + " – Media Lab Bayern")
+  set document(title: template.titel + " " + name + " – Media Lab Bayern")
   
   // Header
   grid(
@@ -124,5 +124,5 @@
   text(", " + template.unterschrift.funktion + " im Media Lab Bayern")
       }
   )
-  pagebreak()
+  pagebreak(weak: true)
 }
