@@ -2,6 +2,8 @@
 
 Automatische Generierung von Teilnahmebescheinigungen basierend auf einer Teilnehmerliste. Der Ordner ist eigenständig und kann überall liegen.
 
+Version: 1.0 (2026-11-18)
+
 ## 📁 Ordnerstruktur
 
 ```text
