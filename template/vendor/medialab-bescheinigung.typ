@@ -21,12 +21,6 @@
   ),
 )
 
-// Page Setup
-#set page(
-  paper: "a4",
-  margin: (x: 5mm, y: 5mm),
-)
-
 // Farben
 #let mlb-turquoise = rgb("#007083")
 #let mlb-marin = rgb("#04313E")
@@ -46,6 +40,10 @@
   font: heading-fonts, weight: weight, size: size, features: ("ss02", "ss03"), hyphenate: false, body,
 )
 #let bescheinigung(vorname: "", nachname: "", template: (:)) = {
+  set page(
+    paper: "a4",
+    margin: (left: 15mm, right: 15mm, top: 15mm, bottom: 15mm),
+  )
   let name = vorname + " " + nachname
   set text(font: sans-fonts, fill: mlb-marin, lang: "de")
   set par(leading: 0.6em, spacing: 0.9em)
@@ -108,10 +106,10 @@
         text(fill: mlb-marin, template.beschreibung)
       }
       if template.at("liste", default: none) != none {
-        v(2mm)
+        v(3mm)
         text(weight: "bold", fill: mlb-marin, template.liste.titel + ":")
-        v(1mm)
-        set list(indent: 0.4em, body-indent: 0.8em, spacing: 0.45em)
+        v(2mm)
+        set list(indent: 0.4em, body-indent: 0.8em, spacing: 0.65em)
         text(fill: mlb-marin, template.liste.text)
       }
       // Ort, Datum, Unterschrift

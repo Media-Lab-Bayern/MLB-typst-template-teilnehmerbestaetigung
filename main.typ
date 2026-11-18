@@ -31,7 +31,7 @@
   ort: [München],
   
   unterschrift: (
-    name: "Phil Scholz",
+    name: "Name Nachname",
     funktion: "Programm Manager",
   ),
 )

@@ -132,7 +132,7 @@ winget install --id Typst.Typst
 
 ### Logo
 
-Das aktuelle Logo ist `assets/MLB_Logo_2 lines-Brand-RGB.svg`. 
+Das aktuelle Logo ist `assets/MLB_Logo_2 lines-Brand-RGB.svg`.
 
 Um ein anderes Logo zu verwenden, bearbeiten Sie in `template/vendor/medialab-bescheinigung.typ` diese Zeile:
 
