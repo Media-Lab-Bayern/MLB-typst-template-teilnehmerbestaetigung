@@ -2,25 +2,14 @@
 
 Automatische Generierung von Teilnahmebescheinigungen basierend auf einer Teilnehmerliste. Der Ordner ist eigenständig und kann überall liegen.
 
-**Status**: Projekt für das Media Lab Bayern (Strategie Offsite)  
-**Output**: 12 generierte Bescheinigungen im `output/`-Ordner
-
 ## 📁 Ordnerstruktur
 
 ```
 ├── README.md                           # Diese Datei
 ├── main.typ                            # Haupttemplate
 ├── teilnehmende.csv                    # Teilnehmer-Datenquelle
-├── compile-individual.sh               # Einzelne PDFs generieren (macOS/Linux)
-├── compile-individual.bat              # Einzelne PDFs generieren (Windows)
-├── Beispiel_alle.pdf                   # Beispiel: Alle Bescheinigungen (kombiniert)
-├── main.pdf                            # Aktuelle Export-Version
 ├── assets/                             # Logos und Grafiken
 │   └── MLB_Logo_2 lines-Brand-RGB.svg  # Media Lab Bayern Logo
-├── output/                             # Generierte PDFs (eine pro Person)
-│   ├── Teilnahmebescheinigung_Arik_Sürek.pdf
-│   ├── Teilnahmebescheinigung_Christina_Fischer.pdf
-│   └── ... (weitere 10 Bescheinigungen)
 └── template/
     └── vendor/
         └── medialab-bescheinigung.typ  # Wiederverwendbares Template-Modul
