@@ -35,15 +35,11 @@ code .
 #let template = (
   titel: "Teilnahmebestätigung",           # Dokumenttitel
   veranstaltung: "Strategie Offsite",      # Veranstaltungsname
-  untertitel: none,                        # Optional
+  "event-subtitle": none,                  # Optional: Untertitel
   
   einleitung: [Das Media Lab Bayern...],   # Intro-Text
   teilnahme: [hat vom 16. bis 18.11.2026 am Strategie Offsite...],  # Zeitraum & Ort
   beschreibung: [Format-Beschreibung...],  # Detaillierte Infos
-  
-  schlüsselfakten: (
-    "Dauer": [19 Stunden],                 # Leistungsmerkmale
-  ),
   
   liste: (
     titel: "Thematische Schwerpunkte",
@@ -96,51 +92,29 @@ typst compile main.typ main.pdf
 
 #### Option B: Einzelne PDFs (eine pro Person)
 
-**Automatisch mit bereitgestelltem Script (empfohlen):**
+**Mit Typst CLI:**
 
-macOS:
+Ein einzelnes Zertifikat generieren (z.B. Teilnehmer #1):
 
 ```bash
-./compile-individual.sh
+typst compile main.typ cert_1.pdf --input nr=1
 ```
 
-Windows (PowerShell/CMD):
+Alle Zertifikate in einer Schleife erzeugen:
 
 ```bash
-compile-individual.bat
-```
-
-**Manuell mit Typst CLI:**
-
-Ein einzelnes Zertifikat generieren (z.B. Teilnehmer #3):
-
-```bash
-typst compile main.typ output/cert_3.pdf --input nr=3
-```
-
-Alle Zertifikate in einer Schleife:
-
-```bash
-# macOS/Linux
-for i in {1..12}; do
-  typst compile main.typ output/cert_$i.pdf --input nr=$i
+# macOS/Linux - passt die Zahl nach "in {1..N}" an
+for i in {1..2}; do
+  typst compile main.typ "cert_$i.pdf" --input nr=$i
 done
 
 # PowerShell (Windows)
-1..12 | ForEach-Object {
-  typst compile main.typ "output/cert_$_.pdf" --input nr=$_
+1..2 | ForEach-Object {
+  typst compile main.typ "cert_$_.pdf" --input nr=$_
 }
 ```
 
-**Output-Benennungsschema:**
-
-```text
-output/
-├── Teilnahmebescheinigung_Arik_Sürek.pdf
-├── Teilnahmebescheinigung_Christina_Fischer.pdf
-├── Teilnahmebescheinigung_Fabian_Bauer.pdf
-└── ... (weitere Zertifikate)
-```
+Die PDFs werden im aktuellen Verzeichnis gespeichert. Sie können bei Bedarf in einen Ordner verschoben werden.
 
 #### Typst einmalig installieren
 
@@ -158,34 +132,32 @@ winget install --id Typst.Typst
 
 ### Logo
 
-Das aktuelle Logo ist `assets/MLB_Logo_2 lines-Brand-RGB.svg`.
+Das aktuelle Logo ist `assets/MLB_Logo_2 lines-Brand-RGB.svg`. 
 
-Um ein anderes Logo zu verwenden:
-
-1. SVG- oder PNG-Datei in den `assets/`-Ordner legen
-2. In `main.typ` anpassen:
+Um ein anderes Logo zu verwenden, bearbeiten Sie in `template/vendor/medialab-bescheinigung.typ` diese Zeile:
 
 ```typst
-logo: "MLB_Logo_3 lines-Brand-CMYK.png"
-logo-hoehe: 22mm
+#let logo = "../../assets/MLB_Logo_2 lines-Brand-RGB.svg"
 ```
 
-Ohne Angabe wird automatisch das 1-Zeilen-Logo verwendet.
+Ersetzen Sie den Pfad durch die neue Logodatei (SVG oder PNG):
+
+```typst
+#let logo = "../../assets/MLB_Logo_3 lines-Brand-CMYK.png"
+```
 
 ### Unterschrift
 
-Unterschrift als **PNG mit transparentem Hintergrund**:
-
-1. Datei in `assets/` speichern
-2. In `main.typ` eintragen:
+Das Template hat folgende Unterschrift-Felder:
 
 ```typst
 unterschrift: (
-  bild: "assets/unterschrift.png",
-  name: "Phil Scholz",
-  funktion: "Programm Manager",
-)
+  name: "Phil Scholz",                   # Unterschrift Name
+  funktion: "Programm Manager",          # Titel
+),
 ```
+
+Passen Sie Name und Funktion in der `template`-Variablen in `main.typ` an.
 
 ## 📋 Template-Modul
 
