@@ -73,6 +73,7 @@ Erika;Musterfrau
 ```
 
 **Anforderungen:**
+
 - Format: CSV mit Semikolon-Trennzeichen (`;`)
 - Spalten: `Vorname` und `Nachname`
 - Encoding: UTF-8 (in Excel: "CSV UTF-8" speichern)
@@ -82,11 +83,13 @@ Erika;Musterfrau
 #### Option A: Kombinierte PDF (alle Zertifikate in einer Datei)
 
 **Mit Tinymist-Preview (Anfänger):**
+
 1. `main.typ` in VS Code öffnen
 2. Tinymist-Preview starten (Klick auf Vorschau-Icon)
 3. "Export PDF" klicken → `main.pdf`
 
 **Mit Typst CLI:**
+
 ```bash
 typst compile main.typ main.pdf
 ```
@@ -96,11 +99,13 @@ typst compile main.typ main.pdf
 **Automatisch mit bereitgestelltem Script (empfohlen):**
 
 macOS:
+
 ```bash
 ./compile-individual.sh
 ```
 
 Windows (PowerShell/CMD):
+
 ```bash
 compile-individual.bat
 ```
@@ -108,11 +113,13 @@ compile-individual.bat
 **Manuell mit Typst CLI:**
 
 Ein einzelnes Zertifikat generieren (z.B. Teilnehmer #3):
+
 ```bash
 typst compile main.typ output/cert_3.pdf --input nr=3
 ```
 
 Alle Zertifikate in einer Schleife:
+
 ```bash
 # macOS/Linux
 for i in {1..12}; do
@@ -126,7 +133,8 @@ done
 ```
 
 **Output-Benennungsschema:**
-```
+
+```text
 output/
 ├── Teilnahmebescheinigung_Arik_Sürek.pdf
 ├── Teilnahmebescheinigung_Christina_Fischer.pdf
@@ -153,8 +161,10 @@ winget install --id Typst.Typst
 Das aktuelle Logo ist `assets/MLB_Logo_2 lines-Brand-RGB.svg`.
 
 Um ein anderes Logo zu verwenden:
+
 1. SVG- oder PNG-Datei in den `assets/`-Ordner legen
 2. In `main.typ` anpassen:
+
 ```typst
 logo: "MLB_Logo_3 lines-Brand-CMYK.png"
 logo-hoehe: 22mm
@@ -165,8 +175,10 @@ Ohne Angabe wird automatisch das 1-Zeilen-Logo verwendet.
 ### Unterschrift
 
 Unterschrift als **PNG mit transparentem Hintergrund**:
+
 1. Datei in `assets/` speichern
 2. In `main.typ` eintragen:
+
 ```typst
 unterschrift: (
   bild: "assets/unterschrift.png",
