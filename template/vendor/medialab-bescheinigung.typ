@@ -120,7 +120,8 @@
   }
   v(12mm)
   line(length: 100mm, stroke: 0.5pt + black)
-  text(weight: "bold", template.unterschrift.name + ", " + template.unterschrift.funktion + " im Media Lab Bayern")
+  text(weight: "bold", template.unterschrift.name)
+  text(", " + template.unterschrift.funktion + " im Media Lab Bayern")
       }
   )
   pagebreak()
